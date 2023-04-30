@@ -52,7 +52,7 @@ namespace ProTechTiveGear.Controllers
 			//return View(NewItem(8));
 			//var model = NewItem(8).Where(nv => nv.Name.Contains(search) || search == null).ToList();
 			
-			var model = data.Items.OrderByDescending(c => c.DateImport).Take(8).Where(nv => nv.Name.Contains(search) || search == null ).ToList();
+			var model = data.Items.Where(x => x.Active.Value).OrderByDescending(c => c.DateImport).Take(8).Where(nv => nv.Name.Contains(search) || search == null ).ToList();
 			
 			return View(model);
 
