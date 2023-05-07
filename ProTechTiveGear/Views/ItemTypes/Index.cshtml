@@ -5,11 +5,19 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Loại Sản Phẩm</h2>
+@*<h2  class="text-center">Loại Sản Phẩm</h2>*@
 
-<p>
+<div class="card-header py-3">
+    <h2 class="text-center">Danh sách sản phẩm</h2>
+
+    <p>
+        @Html.ActionLink("Thêm mới", "Create", new { @class = "btn btn-success" })
+    </p>
+</div>
+
+@*<p>
     @Html.ActionLink("Thêm mới", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -29,11 +37,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Menu.Name)
         </td>
+
         <td>
-            @Html.ActionLink("Cập Nhập", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Chi Tiết", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.ID })
+            @Html.ActionLink(" ", "Edit", new { id = item.ID }, new { @class = "far fa-edit btn btn-outline-success" }) |
+
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-outline-success" }) |
+            @Html.ActionLink(" ", "Delete", new { id = item.ID }, new { @class = "far fa-trash-alt btn btn-outline-success" })
         </td>
+
+        @*<td>
+            @Html.ActionLink("Cập Nhập", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Chi Tiết", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+        </td>*@
     </tr>
 }
 

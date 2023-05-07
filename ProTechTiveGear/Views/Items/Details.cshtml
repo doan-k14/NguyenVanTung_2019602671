@@ -17,7 +17,7 @@
 			<br />
 
 		</td>
-		<th> Tên</th>
+		<th> Tên sản phẩm</th>
 		<td> @Html.DisplayFor(model => model.Name)</td>
 	</tr>
 	<tr>
@@ -69,4 +69,10 @@
 		<td></td>
 	</tr>
 </table>
-<p>@Html.ActionLink("Quay lại", "Index")</p>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Quay lại", "Index")
+    </div>
+</div>
+<p>@*@Html.ActionLink("Quay lại", "Index")*@</p>

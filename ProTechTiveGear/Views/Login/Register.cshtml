@@ -1,88 +1,177 @@
 ﻿
 @{
-	ViewBag.Title = "Register";
-	Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    //Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
 }
 
-<h2>Đăng ký</h2>
+@*<h2>Đăng ký</h2>*@
 
 
 @using (Html.BeginForm("Register", "Login", FormMethod.Post, new
 {
-	enctype = "multipart/form-data"
+    enctype = "multipart/form-data"
 }))
 {
-	@Html.AntiForgeryToken()
-<div class="container" align="center">
-	<br />
-	<div class="col-md-5">
-		<input type="text"
-			   id="Name"
-			   name="Name"
-			   class="form-control" placeholder="Họ Tên" required />
-	</div>
-	<br />
-	<div class="col-md-5">
-		<input type="text"
-			   id="Username"
-			   name="Username"
-			   class="form-control" placeholder="Tài khoản" required />
-		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+    @*<div class="container" align="center">
+            <br />
+            <div class="col-md-5">
+                <input type="text"
+                       id="Name"
+                       name="Name"
+                       class="form-control" placeholder="Họ Tên" required />
+            </div>
+            <br />
+            <div class="col-md-5">
+                <input type="text"
+                       id="Username"
+                       name="Username"
+                       class="form-control" placeholder="Tài khoản" required />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-	</div>
-	<br />
-	<div class="col-md-5">
-		<input type="password"
-			   id="Password"
-			   name="Password"
-			   class="form-control" placeholder="Mật khẩu" required />
-	</div>
-	<br />
-	<div class="col-md-5">
-		<input type="password"
-			   id="ConfirmPassword"
-			   name="ConfirmPassword"
-			   class="form-control" placeholder="Xác nhận mật khẩu" required />
-	</div>
-	<span style="color:red">@ViewBag.Confirm</span>
+            </div>
+            <br />
+            <div class="col-md-5">
+                <input type="password"
+                       id="Password"
+                       name="Password"
+                       class="form-control" placeholder="Mật khẩu" required />
+            </div>
+            <br />
+            <div class="col-md-5">
+                <input type="password"
+                       id="ConfirmPassword"
+                       name="ConfirmPassword"
+                       class="form-control" placeholder="Xác nhận mật khẩu" required />
+            </div>
+            <span style="color:red">@ViewBag.Confirm</span>
 
-	<br />
-	<div class="col-md-5">
-		<input type="email"
-			   id="Email"
-			   name="Email"
-			   class="form-control" placeholder="Email" required />
-	</div>
+            <br />
+            <div class="col-md-5">
+                <input type="email"
+                       id="Email"
+                       name="Email"
+                       class="form-control" placeholder="Email" required />
+            </div>
 
-	<br />
-	<br />
-	<div class="col-md-5">
-		<input type="text"
-			   id="Address"
-			   name="Address"
-			   class="form-control" placeholder="Địa chỉ" required />
-	</div>
+            <br />
+            <br />
+            <div class="col-md-5">
+                <input type="text"
+                       id="Address"
+                       name="Address"
+                       class="form-control" placeholder="Địa chỉ" required />
+            </div>
 
-	<br />
-	<br />
-	<div class="col-md-5">
-		<input type="text"
-			   id="PhoneNumber"
-			   name="PhoneNumber"
-			   class="form-control" placeholder="Số điện thoại" required />
-	</div>
+            <br />
+            <br />
+            <div class="col-md-5">
+                <input type="text"
+                       id="PhoneNumber"
+                       name="PhoneNumber"
+                       class="form-control" placeholder="Số điện thoại" required />
+            </div>
 
-	<br />
+            <br />
 
-	<br />
+            <br />
 
-	<input type="submit" value="  Đăng ký " title="Đăng ký" class="btn btn-primary" />
+            <input type="submit" value="  Đăng ký " title="Đăng ký" class="btn btn-primary" />
 
 
 
-</div>
+        </div>*@
+
+    <div class="wrap-login100">
+        <form class="login100-form validate-form">
+            <span class="login100-form-logo">
+                <i class="zmdi zmdi-landscape"></i>
+            </span>
+
+            <span class="login100-form-title p-b-34 p-t-27">
+                Đăng ký
+            </span>
+
+
+            <div class="wrap-input100 validate-input" data-validate="Enter họ tên">
+                @*@Html.TextBox("userName", null, new { @class = "form-control", @placeholder = "UserName", required = "required" })*@
+                <input class="input100" type="text" name="Name" id="Name" placeholder="Họ tên" required>
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Enter username">
+                @*@Html.TextBox("userName", null, new { @class = "form-control", @placeholder = "UserName", required = "required" })*@
+                <input class="input100" type="text" name="Username" id="Username" placeholder="Tài khoản" required>
+                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                @*@Html.Password("passWord", null, new { @class = "form-control", @placeholder = "Password", required = "required" })*@
+                <input class="input100" type="password" name="Password" id="=Password" placeholder="Mật Khẩu" required>
+
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                @*<span style="color:red">@Html.ValidationSummary(true)</span>*@
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter password">
+                @*@Html.Password("passWord", null, new { @class = "form-control", @placeholder = "Password", required = "required" })*@
+                <input class="input100" type="password" name="ConfirmPassword" id="=ConfirmPassword" placeholder="Xác nhận mật khẩu" required>
+
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                @*<span style="color:red">@Html.ValidationSummary(true)</span>*@
+            </div>
+            <span style="color:red">@ViewBag.Confirm</span>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter email">
+                @*@Html.Password("passWord", null, new { @class = "form-control", @placeholder = "Password", required = "required" })*@
+                <input class="input100" type="email" name="Email" id="=Email" placeholder="Email" required>
+
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                @*<span style="color:red">@Html.ValidationSummary(true)</span>*@
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter address">
+                @*@Html.Password("passWord", null, new { @class = "form-control", @placeholder = "Password", required = "required" })*@
+                <input class="input100" type="text" name="Address" id="=Address" placeholder="Địa chỉ" required>
+
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                @*<span style="color:red">@Html.ValidationSummary(true)</span>*@
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Enter phoneNumber">
+                @*@Html.Password("passWord", null, new { @class = "form-control", @placeholder = "Password", required = "required" })*@
+                <input class="input100" type="text" name="PhoneNumber" id="=PhoneNumber" placeholder="Số điện thoại" required>
+
+                <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                @*<span style="color:red">@Html.ValidationSummary(true)</span>*@
+            </div>
+
+            @*<div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+                Nhớ mật khẩu
+            </label>
+        </div>*@
+
+            @*<input type="submit" value="  Đăng ký " title="Đăng ký" class="btn btn-primary" />*@
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn" type="submit" value="  Đăng ký " title="Đăng ký">
+                    Đăng ký
+                </button>
+            </div>
+
+            @*<div class="text-center p-t-90">
+                <a class="txt1" href="#">
+                    Quên Mật Khẩu?
+                </a>
+            </div>*@
+        </form>
+    </div>
 }
 
 <div>
-	@Html.ActionLink("Login", "Account")
+    @Html.ActionLink("Login", "Account")
 </div>
+
+
+

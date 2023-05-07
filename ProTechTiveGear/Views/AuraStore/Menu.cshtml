@@ -19,6 +19,10 @@
             <a class="dropdown-toggle" href="@Url.Action("Index","AuraStore")" role="button" aria-haspopup="true" aria-expanded="false">Trang chủ</a>
 
         </li>
+        <li class="dropdown submenu">
+            <a class="dropdown-toggle" href="@Url.Action("ListAllItem","AuraStore")" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
+
+        </li>
         @foreach (var item in Model)
         {
             <li class="dropdown submenu">
@@ -36,7 +40,7 @@
 
 
         }
-       @* <li class="dropdown submenu">
+        @* <li class="dropdown submenu">
             <a class="dropdown-toggle" href="@Url.Action("Blog","AuraStore")" role="button" aria-haspopup="true" aria-expanded="false">Tin Tức</a>
 
         </li>*@

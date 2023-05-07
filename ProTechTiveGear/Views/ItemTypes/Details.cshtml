@@ -5,31 +5,48 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Chi Tiết</h2>
+<h2 class="text-center">Chi Tiết loại sản phẩm</h2>
 
-<div>
-    <h4>Loại Sản Phẩm</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Tên
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TypeName)
-        </dd>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                    <div>
+                        <h4>@*Loại Sản Phẩm*@</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Tên
+                            </dt>
 
-        <dt>
-           Loại
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.TypeName)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Menu.Name)
-        </dd>
+                            <dt>
+                               Loại
+                            </dt>
 
-    </dl>
+                            <dd>
+                                @Html.DisplayFor(model => model.Menu.Name)
+                            </dd>
+
+                        </dl>
+                    </div>
+                </thead>
+            </table>
+        </div>
+    </div>
+<div class="text-center">
+    <td>
+        @Html.ActionLink("Cập nhật", "Edit", new { id = Model.ID }, new { @class = "btn btn-outline-success" }) |
+
+        @Html.ActionLink("Quay lại", "Index", new { @class = "btn btn-outline-success" })
+    </td>
 </div>
-<p>
+
+@*<p>
     @Html.ActionLink("Cập Nhập", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Quay lại", "Index")
-</p>
+</p>*@

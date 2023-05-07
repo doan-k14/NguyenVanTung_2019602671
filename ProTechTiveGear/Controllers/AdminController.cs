@@ -21,22 +21,23 @@ namespace ProTechTiveGear.Controllers
 		}
 		public ActionResult Index()
         {
-			DateTime dateTimeNow = DateTime.Now.Date;
-			dateTimeNow = dateTimeNow.AddYears(-1);
+			//DateTime dateTimeNow = DateTime.Now.Date;
+			//dateTimeNow = dateTimeNow.AddYears(-1);
 
 			string[] dateX = new string[12];
 			string[] data = new string[12];
 			for (int i = 0; i < 12; i++)
 			{
 
-				dateX[i] = (dateTimeNow.Month.ToString() + "/" + dateTimeNow.Year.ToString()).ToString();
-				var temp = db.Orders.Where(a => a.Orderdate.Value.Month == dateTimeNow.Month).Sum(s => s.Totalprice);
+				//dateX[i] = (dateTimeNow.Month.ToString() + "/" + dateTimeNow.Year.ToString()).ToString();
+				dateX[i] = $"Tháng {i + 1}";
+                var temp = db.Orders.Where(a => a.Orderdate.Value.Month == i+1 /*dateTimeNow.Month*/).Sum(s => s.Totalprice);
 				if (temp == null)
 				{
 					temp = 0;
 				}
 				data[i] = temp.ToString();
-				dateTimeNow = dateTimeNow.AddMonths(1);
+				//dateTimeNow = dateTimeNow.AddMonths(1);
 			}
 			ViewBag.dateX = dateX;
 			ViewBag.data = data;

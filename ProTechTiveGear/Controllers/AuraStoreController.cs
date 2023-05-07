@@ -33,6 +33,12 @@ namespace ProTechTiveGear.Controllers
 		{
 			return data.Items.Where(d=>d.Active==true).OrderByDescending(a => a.DateImport).Take(count).ToList();
 		}
+		public ActionResult ListAllItem(string search, int page = 1, int pageSize = 5)
+		{
+            var model = data.Items.Where(x => x.Active.Value).OrderByDescending(c => c.DateImport).Where(nv => nv.Name.Contains(search) || search == null).ToList();
+
+            return View(model);
+        }
 		public ActionResult Index(/*FormCollection fc*/string search)
         {
 			//var item = NewItem(8);
